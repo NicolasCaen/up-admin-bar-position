@@ -86,6 +86,9 @@ html.up-adminbar-left #wpadminbar .ab-empty-item, html.admin-bar-left #wpadminba
 html.up-adminbar-left #wpadminbar a.ab-item, html.admin-bar-left #wpadminbar a.ab-item, html.up-adminbar-right #wpadminbar a.ab-item, html.admin-bar-right #wpadminbar a.ab-item {
   line-height: 1;
 }
+html.up-adminbar-left #wpadminbar a.ab-item:before, html.admin-bar-left #wpadminbar a.ab-item:before, html.up-adminbar-right #wpadminbar a.ab-item:before, html.admin-bar-right #wpadminbar a.ab-item:before {
+  font-size: 2rem !important;
+}
 html.up-adminbar-left #wpadminbar ul, html.admin-bar-left #wpadminbar ul, html.up-adminbar-right #wpadminbar ul, html.admin-bar-right #wpadminbar ul {
   display: flex;
   flex-direction: column;

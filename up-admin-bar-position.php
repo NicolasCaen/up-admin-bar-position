@@ -44,10 +44,10 @@ function up_admin_bar_position_add_selector( $wp_admin_bar ): void {
     // Render a select inside an empty item so we can interact inside the toolbar
     $select_html = '<label style="display:flex;align-items:center;gap:6px">'
         . '<select id="upab-position-select" style="height:26px;line-height:26px;padding:2px 6px">'
-        . '<option value="top">Haut</option>'
-        . '<option value="bottom">Bas</option>'
-        . '<option value="left">Gauche</option>'
-        . '<option value="right">Droite</option>'
+        . '<option value="top">↥</option>'
+        . '<option value="bottom">↧</option>'
+        . '<option value="left">↦</option>'
+        . '<option value="right">↤</option>'
         . '</select>'
         . '</label>';
 

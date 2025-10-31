@@ -59,10 +59,14 @@ html {
     #wpadminbar{
         .ab-empty-item{
             padding: 0 !important;
+
            }
         a.ab-item{
           //  writing-mode:vertical-lr !important;
             line-height: 1;
+                        &:before{
+                font-size: 2rem !important;
+            }
           
         }
            ul{ 
