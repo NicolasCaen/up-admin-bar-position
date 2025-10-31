@@ -1,0 +1,123 @@
+/* Admin Bar Position - SCSS (nested) */
+$upab-side-width: 64px;
+
+html.admin-bar { margin-top: 0 !important; }
+
+/* Floating (compat) */
+html.up-adminbar-floating {
+  #wpadminbar {
+    position: fixed !important;
+    top: var(--upab-top, 0) !important;
+    left: var(--upab-left, 0) !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: max-content !important;
+    max-width: 100vw !important;
+    z-index: 99999 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+
+    .ab-sub-wrapper { top: 100% !important; left: 0; }
+  }
+
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Positions */
+html {
+  /* TOP */
+  &.up-adminbar-top,
+  &.admin-bar-top {
+    #wpadminbar { position: fixed !important; top: 0; left: 0; right: 0; }
+    margin-top: 32px !important;
+    @media (max-width: 782px) { margin-top: 46px !important; }
+  }
+
+  /* BOTTOM */
+  &.up-adminbar-bottom,
+  &.admin-bar-bottom {
+    #wpadminbar {
+      position: fixed !important; bottom: 0; left: 0; right: 0; top: auto !important;
+      .ab-sub-wrapper { bottom: 32px !important; top: auto !important; }
+      .menupop .ab-sub-wrapper,
+      .shortlink-input { top: auto !important; bottom: 100% !important; }
+    }
+    margin-bottom: 32px !important;
+    @media (max-width: 782px) {
+      margin-bottom: 46px !important;
+      #wpadminbar { .ab-sub-wrapper { bottom: 46px !important; } }
+    }
+  }
+  &.up-adminbar-left,
+  &.admin-bar-left,  
+  &.up-adminbar-right,
+  &.admin-bar-right{
+    .wp-admin-bar-my-account,.admin-bar-search{
+        display: none !important;
+    }
+    margin-top:0 !important;
+    #wpadminbar{
+        .ab-empty-item{
+            padding: 0 !important;
+           }
+        a.ab-item{
+          //  writing-mode:vertical-lr !important;
+            line-height: 1;
+          
+        }
+           ul{ 
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+          }
+    }
+
+
+  }
+  /* LEFT */
+  &.up-adminbar-left,
+  &.admin-bar-left {
+    #wpadminbar {
+      position: fixed !important; top: 0; bottom: 0; left: 0;
+      width: $upab-side-width; min-width: auto; display: flex; height: auto; flex-direction: column;
+      .quicklinks > ul { flex-direction: column; }
+      .ab-top-menu > li, .ab-top-secondary > li { width: 100%; }
+      a.ab-item {
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        padding: 8px 6px; text-align: center;
+        .ab-icon { margin: 0 0 4px 0; }
+        .ab-label { display: block; font-size: 10px; line-height: 1.2; }
+      }
+      .ab-sub-wrapper { top: 0 !important; left: $upab-side-width !important; right: auto !important; bottom: auto !important; }
+      .menupop .ab-sub-wrapper { left: 100% !important; }
+    }
+    margin-left: $upab-side-width !important;
+  }
+
+  /* RIGHT */
+  &.up-adminbar-right,
+  &.admin-bar-right {
+    #wpadminbar {
+      position: fixed !important; top: 0; bottom: 0; right: 0; left: auto;
+      width: $upab-side-width; min-width: auto; display: flex; height: auto; flex-direction: column;
+      .quicklinks > ul { flex-direction: column; }
+      .ab-top-menu > li, .ab-top-secondary > li { width: 100%; }
+      a.ab-item {
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        padding: 8px 6px; text-align: center;
+        .ab-icon { margin: 0 0 4px 0; }
+        .ab-label { display: block; font-size: 10px; line-height: 1.2; }
+      }
+      .ab-sub-wrapper { top: 0 !important; right: $upab-side-width !important; left: auto !important; bottom: auto !important; }
+      .menupop .ab-sub-wrapper { right: 100% !important; }
+    }
+    margin-right: $upab-side-width !important;
+  }
+}
+
+/* Woo drawer conflict reduction */
+.admin-bar .wc-block-components-drawer__content { margin-top: 0 !important; }
+
+/* Compat handle */
+#wp-admin-bar-upab-handle > .ab-item { cursor: grab; }
+#wp-admin-bar-upab-handle > .ab-item:active { cursor: grabbing; }

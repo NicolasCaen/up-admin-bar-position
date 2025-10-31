@@ -1,36 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const adminBar = document.getElementById('wpadminbar');
+  const html = document.documentElement;
+  const select = document.getElementById('upab-position-select');
+  const STORAGE_KEY = 'upAdminBarPositionSimple';
 
-    if (!adminBar) {
-        return;
-    }
+  const KL_TOP = 'admin-bar-top';
+  const KL_BOTTOM = 'admin-bar-bottom';
+  const KL_LEFT = 'admin-bar-left';
+  const KL_RIGHT = 'admin-bar-right';
+  const ALL = [KL_TOP, KL_BOTTOM, KL_LEFT, KL_RIGHT, 'up-adminbar-top', 'up-adminbar-bottom', 'up-adminbar-left', 'up-adminbar-right', 'up-adminbar-floating'];
 
-    const menupopElements = adminBar.querySelectorAll('.menupop');
+  function apply(pos) {
+    ALL.forEach(c => html.classList.remove(c));
+    if (pos === 'top') html.classList.add(KL_TOP);
+    if (pos === 'bottom') html.classList.add(KL_BOTTOM);
+    if (pos === 'left') html.classList.add(KL_LEFT);
+    if (pos === 'right') html.classList.add(KL_RIGHT);
+    try { localStorage.setItem(STORAGE_KEY, pos); } catch (_) {}
+  }
 
-    menupopElements.forEach((menu) => {
-        const submenuWrapper = menu.querySelector('.ab-sub-wrapper');
-
-        if (!submenuWrapper) {
-            return;
-        }
-
-        menu.addEventListener('mouseenter', () => {
-            submenuWrapper.style.bottom = '100%';
-            submenuWrapper.style.top = 'auto';
-        });
-
-        menu.addEventListener('mouseleave', () => {
-            submenuWrapper.style.bottom = '';
-            submenuWrapper.style.top = '';
-        });
-    });
-
-    const nestedSubmenus = adminBar.querySelectorAll('.ab-submenu .ab-submenu');
-
-    nestedSubmenus.forEach((submenu) => {
-        submenu.style.top = 'auto';
-        submenu.style.bottom = '0';
-        submenu.style.marginTop = '0';
-        submenu.style.marginBottom = '0';
-    });
+  const saved = (() => { try { return localStorage.getItem(STORAGE_KEY); } catch (_) { return null; } })();
+  const initial = saved && ['top','bottom','left','right'].includes(saved) ? saved : 'bottom';
+  apply(initial);
+  if (select) {
+    select.value = initial;
+    select.addEventListener('change', () => apply(select.value));
+  }
 });
