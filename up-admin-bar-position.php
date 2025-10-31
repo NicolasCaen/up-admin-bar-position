@@ -2,7 +2,7 @@
 /**
  * Plugin Name: UP Admin Bar Position
  * Description: Déplace la barre d'administration WordPress en bas de l'écran pour les utilisateurs connectés.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: GEHIN NICOLAS
  * Text Domain: up-admin-bar-position
  */
@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 defined('ABSPATH') || exit;
 
-const UP_ADMIN_BAR_POSITION_VERSION = '1.0.0';
+const UP_ADMIN_BAR_POSITION_VERSION = '1.1.0';
 
 function up_admin_bar_position_enqueue_assets(): void {
     if (!is_admin_bar_showing()) {
