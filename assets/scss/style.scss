@@ -41,7 +41,8 @@ html {
       .ab-sub-wrapper { bottom: 32px !important; top: auto !important; }
       .menupop .ab-sub-wrapper,
       .shortlink-input { top: auto !important; bottom: 100% !important; }
-    }
+    } 
+    margin-top: 0 !important; 
     margin-bottom: 32px !important;
     @media (max-width: 782px) {
       margin-bottom: 46px !important;
@@ -84,6 +85,7 @@ html {
   /* LEFT */
   &.up-adminbar-left,
   &.admin-bar-left {
+      margin-bottom: 32px !important;
     #wpadminbar {
       position: fixed !important; top: 0; bottom: 0; left: 0;
       width: $upab-side-width; min-width: auto; display: flex; height: auto; flex-direction: column;

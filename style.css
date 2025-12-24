@@ -47,6 +47,7 @@ html.up-adminbar-top #wpadminbar, html.admin-bar-top #wpadminbar {
   }
 }
 html.up-adminbar-bottom, html.admin-bar-bottom {
+  margin-top: 0 !important;
   margin-bottom: 32px !important;
 }
 html.up-adminbar-bottom #wpadminbar, html.admin-bar-bottom #wpadminbar {
@@ -98,6 +99,7 @@ html.up-adminbar-left #wpadminbar ul.ab-submenu, html.admin-bar-left #wpadminbar
   gap: 0;
 }
 html.up-adminbar-left, html.admin-bar-left {
+  margin-bottom: 32px !important;
   margin-left: 64px !important;
 }
 html.up-adminbar-left #wpadminbar, html.admin-bar-left #wpadminbar {
