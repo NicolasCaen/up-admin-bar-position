@@ -2,6 +2,8 @@
 
 Toutes les modifications notables du plugin **UP Admin Bar Position** sont consignées dans ce fichier.
 
+## [1.1.1] - 2025-12-24
+- correction css html margin top
 ## [1.1.0] - 2025-10-31
 - Ajout d'un sélecteur dans la barre d'administration pour choisir la position (haut/bas/gauche/droite).
 - Refonte des styles avec un SCSS imbriqué compilé en `style.css`.
